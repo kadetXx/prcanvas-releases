@@ -44,8 +44,9 @@ the questions, on your own plan. There are no keys to paste and no account to ma
 
 ## Use
 
-Click the menu bar icon, paste a PR link or `owner/repo#123`, press Return. About a
-minute later the canvas opens in your browser. The panel lists what is running; each
+Click the menu bar icon, paste a PR link or `owner/repo#123`, press Return. The canvas
+opens in your browser in seconds, and Claude fills in the summaries and questions over
+the next ten to twenty-five. The panel lists what is running; each
 canvas has an Open, a copy-link, and a stop. Quitting the app stops them all.
 
 ### Reading a canvas
@@ -61,21 +62,21 @@ canvas has an Open, a copy-link, and a stop. Quitting the app stops them all.
   bubbles on their lines. Click one to read the thread and reply. Unread ones are marked.
 - Hover a line of code for a `+` to comment on it. Press `c` and click anywhere for a
   free comment. Both post to the PR on GitHub, and replies are ordinary GitHub threads.
-- Approve shows how many questions you never opened, then posts your review to GitHub
-  with that number in it. Request changes and comment-only are in the same menu.
+- Approve posts your review to GitHub, with your note as its only text. Request changes
+  and comment-only are in the same menu.
 
 ## How it works
 
 1. The PR is fetched with the GitHub CLI, without checking out the repo.
 2. Every changed file is parsed and split into frames: one per top-level declaration,
    the function or component as it stands after the change, with the diff marked inside.
-3. One Claude call reads all the frames and returns the reading order, the arrows between
-   frames, a summary per frame, and, when a PR does several things, which frames belong
-   to which.
-4. Claude then grades the frames in small batches against a fixed list of concerns
-   (a query inside a loop, a public contract that changed, a URL that went away, and so
-   on) and asks a PR-specific question where one fits.
-5. The canvas is served from a local port and opened in your browser.
+3. The code itself gives the arrows between frames (who calls, awaits or renders whom)
+   and the reading order. The canvas is served from a local port and opens in your
+   browser with all of that already drawn.
+4. Claude then fills it in, in parallel: which frames belong together when a PR does
+   several things, a summary per frame, and the frames graded in small batches against a
+   fixed list of concerns (a query inside a loop, a public contract that changed, a URL
+   that went away, and so on), with a PR-specific question where one fits.
 
 ## Who does what
 
@@ -85,11 +86,12 @@ canvas has an Open, a copy-link, and a stop. Quitting the app stops them all.
  │ paste a PR link    │──────▶│ the GitHub CLI fetches the PR            │
  └────────────────────┘       │        │                                 │
                               │        ▼                                 │
-                              │ Claude Code writes the summaries         │
-                              │ and the questions                        │
+                              │ the canvas opens in your browser with    │
+                              │ its frames, arrows and reading order     │
                               │        │                                 │
                               │        ▼                                 │
-                              │ the canvas opens in your browser         │
+                              │ Claude Code fills in the summaries and   │
+                              │ the questions while you read             │
                               └────────────────────┬─────────────────────┘
                                                    │
                                                    ▼
@@ -126,8 +128,8 @@ browser.
 
 ## Honest notes
 
-- **Cost.** One PR is one Claude Code call plus a few small ones, on your plan. On a
-  34-file PR that was under a dollar and about a minute.
+- **Cost.** One PR is a handful of small Claude Code calls, on your plan. On a 34-file PR
+  that was about twenty cents and under half a minute.
 - **Quality.** The summaries and questions come from a model. They are usually right and
   sometimes not. That is why they are questions, not verdicts.
 
@@ -151,8 +153,8 @@ prcanvas.review changes the reading surface instead. The change is shown in the 
 runs, from the entry point outward, so you read it the way it executes. Each piece has a
 sentence saying what it does after the change. And instead of findings, each piece has
 questions: things a careful colleague would look at, that you answer, and that you can
-mark as an issue if the answer is bad. When you approve, the review says how many of
-those questions you never opened. That number is the point.
+mark as an issue if the answer is bad. The top bar keeps count of how many of those
+questions you have not opened yet. That number is for you, not a trail on the PR.
 
 ### What you are looking at
 
@@ -163,7 +165,7 @@ not a file; a file with four changed functions is four frames.
 
 **Order.** Frames are numbered in the order the logic runs, callers before callees,
 starting from the entry point of the change, which carries a `start` badge. Arrows
-between frames say how they relate: calls, awaits, imports, returns to. The number
+between frames say how they relate: calls, awaits, renders, uses. The number
 badges are coloured so you can find frame 12 on the map at a glance.
 
 **Story and Code.** Story mode shows only the summaries, one line per frame, so the whole
@@ -171,13 +173,13 @@ PR fits on a screen. Code mode shows the diff inside each frame. The canvas open
 Story.
 
 **Threads.** When a PR does more than one thing, the frames are grouped into bands: the
-one the title is about on top, then the others, labelled. The top bar says "3 threads,
-title covers 1". That is the "please split this PR" comment, as a count.
+one the title is about on top, then the others, labelled. The top bar says "3 changes".
+That is the "please split this PR" comment, as a count.
 
 **The rail.** To the right of each frame in Code mode: up to four questions, each
-pointing at a line. They come from a fixed list of concerns plus questions written for
-this PR specifically. Hover one to see the line it means. Frames with nothing to ask
-say so.
+sitting beside the lines it is about, with a bracket when it covers a block. They come
+from a fixed list of concerns plus questions written for this PR specifically. Hover one
+to highlight its lines. Frames with nothing to ask say so.
 
 **Comments.** Existing GitHub review comments show up as bubbles on their lines. Bubbles
 you have not opened yet are highlighted; the button under the zoom controls hides them
