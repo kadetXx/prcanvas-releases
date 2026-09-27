@@ -2,7 +2,9 @@
 
 [![downloads](https://img.shields.io/github/downloads/kadetXx/prcanvas-releases/total?style=flat-square&color=a371f7&label=downloads)](https://github.com/kadetXx/prcanvas-releases/releases/latest) [![latest](https://img.shields.io/github/v/release/kadetXx/prcanvas-releases?style=flat-square&color=2ea043&label=latest)](https://github.com/kadetXx/prcanvas-releases/releases/latest) ![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-555?style=flat-square&logo=apple&logoColor=white)
 
-<video src="https://github.com/user-attachments/assets/6b09bbdb-22a9-488b-93ba-e9ae5ce7e521" poster="https://raw.githubusercontent.com/kadetXx/prcanvas-releases/main/docs/poster.jpg" autoplay muted loop playsinline controls width="100%"></video>
+
+https://github.com/user-attachments/assets/39d77a1d-c5ad-435a-897c-ee08e19218dc
+
 
 *Trial one. Thirty seconds of a PR being read on the canvas; the questions get sharper from here.*
 
