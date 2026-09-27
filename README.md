@@ -1,14 +1,14 @@
-# canvasreview
+# prcanvas.review
 
-[![downloads](https://img.shields.io/github/downloads/kadetXx/canvasreview-releases/total?style=flat-square&color=a371f7&label=downloads)](https://github.com/kadetXx/canvasreview-releases/releases/latest) [![latest](https://img.shields.io/github/v/release/kadetXx/canvasreview-releases?style=flat-square&color=2ea043&label=latest)](https://github.com/kadetXx/canvasreview-releases/releases/latest) ![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-555?style=flat-square&logo=apple&logoColor=white)
+[![downloads](https://img.shields.io/github/downloads/kadetXx/prcanvas-releases/total?style=flat-square&color=a371f7&label=downloads)](https://github.com/kadetXx/prcanvas-releases/releases/latest) [![latest](https://img.shields.io/github/v/release/kadetXx/prcanvas-releases?style=flat-square&color=2ea043&label=latest)](https://github.com/kadetXx/prcanvas-releases/releases/latest) ![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-555?style=flat-square&logo=apple&logoColor=white)
 
-<video src="https://github.com/user-attachments/assets/6b09bbdb-22a9-488b-93ba-e9ae5ce7e521" poster="https://raw.githubusercontent.com/kadetXx/canvasreview-releases/main/docs/poster.jpg" autoplay muted loop playsinline controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/6b09bbdb-22a9-488b-93ba-e9ae5ce7e521" poster="https://raw.githubusercontent.com/kadetXx/prcanvas-releases/main/docs/poster.jpg" autoplay muted loop playsinline controls width="100%"></video>
 
 *Trial one. Thirty seconds of a PR being read on the canvas; the questions get sharper from here.*
 
 A pull request as a canvas.
 
-**[Download for Mac](https://github.com/kadetXx/canvasreview-releases/releases/latest/download/CanvasReview.dmg)** · Apple Silicon, notarised. Free.
+**[Download for Mac](https://github.com/kadetXx/prcanvas-releases/releases/latest/download/PRCanvas.dmg)** · Apple Silicon, notarised. Free.
 
 Open a PR and you get one frame per changed function, wired in the order the logic runs,
 with a one-line summary on each and a short list of questions to answer before you
@@ -26,7 +26,7 @@ there. Your replies go back to the PR. Nobody has to switch tools for you to use
 
 Apple Silicon only for now.
 
-1. [Download `CanvasReview.dmg`](https://github.com/kadetXx/canvasreview-releases/releases/latest/download/CanvasReview.dmg).
+1. [Download `PRCanvas.dmg`](https://github.com/kadetXx/prcanvas-releases/releases/latest/download/PRCanvas.dmg).
 2. Open it and drag the app to Applications.
 3. Open the app. It lives in the menu bar.
 
@@ -118,7 +118,7 @@ comments never lived anywhere but GitHub.
 Two places, both of which it already goes to. GitHub, through the GitHub CLI, to fetch the PR and
 to post what you write. And Anthropic, through your Claude Code session, which reads the
 frames of the PR the same way it reads a repo when you use Claude Code on it. Your
-Claude Code login, plan and data settings apply. Nowhere else: there is no canvasreview
+Claude Code login, plan and data settings apply. Nowhere else: there is no prcanvas.review
 server, comments live on the PR, and what you have checked on the rail lives in your
 browser.
 
@@ -145,7 +145,7 @@ does and what could go wrong. The tools that add AI to this mostly add findings:
 that assert something is wrong, on the same alphabetical diff. Reviewers learn to skip
 them.
 
-canvasreview changes the reading surface instead. The change is shown in the order it
+prcanvas.review changes the reading surface instead. The change is shown in the order it
 runs, from the entry point outward, so you read it the way it executes. Each piece has a
 sentence saying what it does after the change. And instead of findings, each piece has
 questions: things a careful colleague would look at, that you answer, and that you can
