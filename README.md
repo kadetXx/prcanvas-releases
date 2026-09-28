@@ -53,6 +53,17 @@ opens in your browser in seconds, and your agent fills in the summaries and ques
 the next ten to twenty-five. The panel lists what is running; each
 canvas has an Open, a copy-link, and a stop. Quitting the app stops them all.
 
+From your agent: `/prcanvas 123` in Claude Code or Cursor, `$prcanvas 123` in Codex, or ask
+Gemini CLI or opencode for a canvas of a PR. The app installs that for each agent it finds.
+
+### Ready before you look
+
+While the app is open, PRs that ask for your review, and your own open PRs, are read in the
+background, one at a time, so they open complete in a few seconds rather than half a
+minute. Your own are read on their first push, then again once they have gone ten minutes
+without one. Drafts, bots and PRs untouched for days are left alone, and nothing is read on
+battery or in Low Power Mode.
+
 ### Reading a canvas
 
 - It opens on the whole PR. Press `→` to start reading in order, `←` to go back.
@@ -66,8 +77,12 @@ canvas has an Open, a copy-link, and a stop. Quitting the app stops them all.
   bubbles on their lines. Click one to read the thread and reply. Unread ones are marked.
 - Hover a line of code for a `+` to comment on it. Press `c` and click anywhere for a
   free comment. Both post to the PR on GitHub, and replies are ordinary GitHub threads.
+- Hover an arrow between two frames to see the code where one uses the other: the call,
+  the await, the `<Tag />`, with the name underlined.
+- `⌘F` or `/` searches the whole PR: summaries, every line of code, questions, comments.
 - Approve posts your review to GitHub, with your note as its only text. Request changes
-  and comment-only are in the same menu.
+  and comment-only are in the same menu. On your own PR the button is Merge, and anyone who
+  can push finds Merge in the same menu; it merges only what the canvas shows.
 
 ## How it works
 
@@ -77,7 +92,7 @@ canvas has an Open, a copy-link, and a stop. Quitting the app stops them all.
 3. The code itself gives the arrows between frames (who calls, awaits or renders whom)
    and the reading order. The canvas is served from a local port and opens in your
    browser with all of that already drawn.
-4. Claude then fills it in, in parallel: which frames belong together when a PR does
+4. Your agent then fills it in, in parallel: which frames belong together when a PR does
    several things, a summary per frame, and the frames graded in small batches against a
    fixed list of concerns (a query inside a loop, a public contract that changed, a URL
    that went away, and so on), with a PR-specific question where one fits.
@@ -94,7 +109,7 @@ canvas has an Open, a copy-link, and a stop. Quitting the app stops them all.
                               │ its frames, arrows and reading order     │
                               │        │                                 │
                               │        ▼                                 │
-                              │ Claude Code fills in the summaries and   │
+                              │ your agent fills in the summaries and    │
                               │ the questions while you read             │
                               └────────────────────┬─────────────────────┘
                                                    │
@@ -172,7 +187,8 @@ not a file; a file with four changed functions is four frames.
 
 **Order.** Frames are numbered in the order the logic runs, callers before callees,
 starting from the entry point of the change, which carries a `start` badge. Arrows
-between frames say how they relate: calls, awaits, renders, uses. The number
+between frames say how they relate; hover one for the line where it happens, with an icon
+for how: a phone calls, a timer awaits, a monitor renders, a plug uses. The number
 badges are coloured so you can find frame 12 on the map at a glance.
 
 **Story and Code.** Story mode shows only the summaries, one line per frame, so the whole
@@ -201,6 +217,7 @@ all.
 | `shift+→` | resume from the frame under the middle of the screen |
 | `⏎` `s` | switch Story and Code, on the frame you are looking at |
 | `esc` | overview of the whole PR |
+| `⌘F` `/` | search the whole PR; `n` and `N` step through the hits |
 | `c` | place a free comment with the next click |
 | `h` | show or hide comments |
 | double-click | open that frame |
@@ -233,8 +250,12 @@ This is not that. The summaries put the change in the order it runs so you can r
 the questions are a checklist you answer, not claims you argue with; and the count of
 what you never opened is something a review has never had before.
 
-**Why Claude Code and not an API key?** You already have it, it is already allowed at
+**Why your coding agent and not an API key?** You already have it, it is already allowed at
 your company, and its cost is already on your plan. Nothing to set up.
+
+**Updates?** The app updates itself from the menu bar, in green. A beta is offered in purple
+and is optional: dismiss it, or, once on it, go back to the last full release with the arrow
+beside the version.
 
 **Private repos?** Yes, anything your GitHub CLI login can see.
 
