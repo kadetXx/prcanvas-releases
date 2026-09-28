@@ -17,7 +17,8 @@ with a one-line summary on each and a short list of questions to answer before y
 approve. You read it with the arrow keys, frame by frame, instead of scrolling a diff
 sorted alphabetically by file.
 
-It runs on your Mac, through the GitHub CLI (`gh`) and the Claude Code you already use. There is
+It runs on your Mac, through the GitHub CLI (`gh`) and the coding agent you already use: Claude Code,
+Codex, Gemini CLI, Cursor or opencode. There is
 no server of ours, no account, and nothing is stored anywhere but GitHub.
 
 Which cuts both ways: every comment already on the PR, from a teammate on github.com or
@@ -32,20 +33,23 @@ Apple Silicon only for now.
 2. Open it and drag the app to Applications.
 3. Open the app. It lives in the menu bar.
 
-It needs two tools you may already have, and it tells you if either is missing:
+It needs two tools you may already have, and it tells you if either is missing: the GitHub
+CLI, and one coding agent, signed in.
 
 ```sh
 brew install gh && gh auth login
-curl -fsSL https://claude.ai/install.sh | bash && claude
+curl -fsSL https://claude.ai/install.sh | bash && claude   # or Codex: npm install -g @openai/codex && codex login
 ```
 
-The GitHub CLI (`gh`) fetches the PR and posts your comments as you. Claude Code writes the summaries and
-the questions, on your own plan. There are no keys to paste and no account to make.
+The GitHub CLI (`gh`) fetches the PR and posts your comments as you. Your agent writes the
+summaries and the questions, on your own plan: Claude Code on a Claude plan, Codex on a
+ChatGPT plan. With more than one installed, pick in the app's settings (the gear); every
+one of them is also a tab in the comment box, so you can ask one and have another check it.
 
 ## Use
 
 Click the menu bar icon, paste a PR link or `owner/repo#123`, press Return. The canvas
-opens in your browser in seconds, and Claude fills in the summaries and questions over
+opens in your browser in seconds, and your agent fills in the summaries and questions over
 the next ten to twenty-five. The panel lists what is running; each
 canvas has an Open, a copy-link, and a stop. Quitting the app stops them all.
 
@@ -120,16 +124,19 @@ comments never lived anywhere but GitHub.
 ## Where your code goes
 
 Two places, both of which it already goes to. GitHub, through the GitHub CLI, to fetch the PR and
-to post what you write. And Anthropic, through your Claude Code session, which reads the
-frames of the PR the same way it reads a repo when you use Claude Code on it. Your
-Claude Code login, plan and data settings apply. Nowhere else: there is no prcanvas.review
+to post what you write. And the company behind the agent you picked (Anthropic for Claude
+Code, OpenAI for Codex, Google for Gemini CLI, and so on), through your own session, which
+reads the frames of the PR the same way it reads a repo when you use it on one. That
+agent's login, plan and data settings apply. Asking a second agent in the comment box sends
+that line and the conversation to that agent's company too. Nowhere else: there is no prcanvas.review
 server, comments live on the PR, and what you have checked on the rail lives in your
 browser.
 
 ## Honest notes
 
-- **Cost.** One PR is a handful of small Claude Code calls, on your plan. On a 34-file PR
-  that was about twenty cents and under half a minute.
+- **Cost.** One PR is a handful of small calls to your agent, on your plan. With Claude Code,
+  a 34-file PR was about twenty cents and under half a minute. Codex does not report a
+  price; it counts against your ChatGPT plan's limits, and sends more tokens per call.
 - **Quality.** The summaries and questions come from a model. They are usually right and
   sometimes not. That is why they are questions, not verdicts.
 
