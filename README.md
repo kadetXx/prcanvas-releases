@@ -2,12 +2,6 @@
 
 [![downloads](https://img.shields.io/github/downloads/kadetXx/prcanvas-releases/total?style=flat-square&color=a371f7&label=downloads)](https://github.com/kadetXx/prcanvas-releases/releases/latest) [![latest](https://img.shields.io/github/v/release/kadetXx/prcanvas-releases?style=flat-square&color=2ea043&label=latest)](https://github.com/kadetXx/prcanvas-releases/releases/latest) ![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-555?style=flat-square&logo=apple&logoColor=white)
 
-
-https://github.com/user-attachments/assets/39d77a1d-c5ad-435a-897c-ee08e19218dc
-
-
-*Trial one. Thirty seconds of a PR being read on the canvas; the questions get sharper from here.*
-
 A pull request as a canvas.
 
 **[Download for Mac](https://github.com/kadetXx/prcanvas-releases/releases/latest/download/PRCanvas.dmg)** · Apple Silicon, notarised. Free.
