@@ -253,9 +253,9 @@ what you never opened is something a review has never had before.
 **Why your coding agent and not an API key?** You already have it, it is already allowed at
 your company, and its cost is already on your plan. Nothing to set up.
 
-**Updates?** The app updates itself from the menu bar, in green. A beta is offered in purple
-and is optional: dismiss it, or, once on it, go back to the last full release with the arrow
-beside the version.
+**Updates?** The app updates itself from the menu bar, in green. Betas are off unless you turn
+on Beta updates at the bottom of settings; then one is offered in purple, and once on it, the
+arrow beside the version goes back to the last full release.
 
 **Private repos?** Yes, anything your GitHub CLI login can see.
 
