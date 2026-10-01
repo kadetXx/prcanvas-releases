@@ -73,11 +73,19 @@ battery or in Low Power Mode.
 - Each frame has a rail of questions. Click one to mark it checked, then issue, then
   n/a. Nothing here is a finding; they are things to look at.
 - Comments already on the PR, whoever left them and wherever they left them, appear as
-  bubbles on their lines. Click one to read the thread and reply. Unread ones are marked.
+  bubbles on their lines; two separate conversations on one line get a bubble each. Click one to
+  read that thread and reply to it. Unread ones are marked. A line with comments is never folded
+  away, in Story or Code.
 - Hover a line of code for a `+` to comment on it. Press `c` and click anywhere for a
   free comment. Both post to the PR on GitHub, and replies are ordinary GitHub threads.
 - Every wire says how two frames meet (calls, awaits, renders, uses). Hover it to see the
   code where it happens: the call, the await, the `<Tag />`, the name marked in both places.
+- When the PR moves on GitHub, the top bar says so: "2 new commits · Refresh". Refresh reads
+  the new commits in the background while you keep reading; then every card the new commits
+  changed is marked, and the mark goes once you've read that card, as GitHub's "viewed" does.
+  It waits while an agent is writing a fix on the canvas.
+- Conflicts with the base branch show as "1 conflict · Fix", with a mark on each card in a
+  conflicting file; Fix has an agent merge the base in and resolve them.
 - `⌘F` or `/` searches the whole PR: summaries, every line of code, questions, comments.
 - Approve posts your review to GitHub, with your note as its only text. Request changes
   and comment-only are in the same menu. On your own PR the button is Merge, and anyone who
