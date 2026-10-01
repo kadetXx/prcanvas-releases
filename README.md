@@ -60,8 +60,9 @@ battery or in Low Power Mode.
 
 ### Reading a canvas
 
-- It opens in Story, on the whole PR: what it does on top, its steps left to right. Press
-  `→` to start reading in order, `←` to go back.
+- It opens in Story, on the whole PR. The first column says what it does and lists its steps
+  down a timeline; click one to go there, and the step you are on stays lit. The steps run
+  left to right after it. Press `→` to start reading in order, `←` to go back.
 - Click a card to read it: its wires show, the rest dims. **More** in its footer opens the
   lines that matter (the declaration, every call, every change); **Fold** folds back any you
   opened, **Less** closes it. Click the word on a wire to open both its cards at once.
@@ -87,7 +88,7 @@ battery or in Low Power Mode.
 On a line, switch the comment box to an agent's tab and ask for a change ("make this return
 early"); it offers a short plan, and once you approve, it works in a copy of the PR. While it writes, its avatar turns on the right edge of the
 canvas. Tap it to follow: the canvas switches to Code and goes wherever it edits, with its
-cursor and name at the line it is on. Story shows the fix once it is written, on the card
+cursor and name at the line it is on, new files included; the avatar glows while you follow. Story shows the fix once it is written, on the card
 it changed. Accept all or Discard when it is done.
 
 ## How it works
@@ -197,11 +198,12 @@ point of the change. Curved wires join them, each with its word: calls, awaits, 
 uses. Hover one for the line where it happens. (Prefer right angles? Advanced settings,
 Curved wires.)
 
-**Story.** Where the canvas opens. On top, what the PR does in a sentence or two. Then its
-steps left to right, numbered, each tagged (entry point, main change, data…) with a line on
-what is in it, and its cards stacked inside: a summary, what it does in plain words, its
-file with its language icon, and what is left to check. The cards are not numbered; the
-steps are.
+**Story.** Where the canvas opens. First, a column with the PR's title, what it does in a
+sentence or two, and its steps down a timeline. Then the steps left to right, numbered, each
+tagged (entry point, main change, data…) with a line on what is in it and how many questions
+are left to check, and its cards stacked inside: a summary, what it does in plain words, its
+file with its language icon, and its counts. The main change is in GitHub's ready-to-merge
+green, and turns merged purple once the PR is in. The cards are not numbered; the steps are.
 
 **Code.** The workspace: every frame with its whole diff, line comments, the questions
 beside the lines they are about, agents writing live. Frames are numbered in reading order,
