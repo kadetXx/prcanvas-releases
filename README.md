@@ -8,8 +8,8 @@ A pull request as a canvas.
 
 Open a PR and you get what it does in a sentence, then its steps left to right in the order
 the logic runs: one card per changed function, each saying what it does, wired to what it
-calls, with a short list of questions to answer before you approve. You read it with the
-arrow keys, card by card, instead of scrolling a diff sorted alphabetically by file.
+calls, and what might break in it, with how to check. You read it with the arrow keys, card
+by card, instead of scrolling a diff sorted alphabetically by file.
 
 It runs on your Mac, through the GitHub CLI (`gh`) and the coding agent you already use: Claude Code,
 Codex, Gemini CLI, Cursor or opencode. There is
@@ -70,8 +70,12 @@ battery or in Low Power Mode.
   also has a button that opens it in the other mode. `esc` goes back to the overview.
 - If you pan around and lose your place, `shift+→` resumes from whatever is under the
   middle of the screen.
-- Each frame has a rail of questions. Click one to mark it checked, then issue, then
-  n/a. Nothing here is a finding; they are things to look at.
+- In Story, a card's checks say what might go wrong. Click one for what happens, the cause, and
+  how to confirm it, with its lines outlined in the code. Mark it Issue or Not an issue; press
+  the same again to undo. **Ask** opens your agent inside the check to talk it through; only
+  you see it.
+- In Code, the same checks sit beside the code as questions. Click one to mark it checked,
+  then issue, then n/a.
 - Comments already on the PR, whoever left them and wherever they left them, appear as
   bubbles on their lines; two separate conversations on one line get a bubble each. Click one to
   read that thread and reply to it. Unread ones are marked. A line with comments is never folded
@@ -109,9 +113,10 @@ it changed. Accept all or Discard when it is done.
    browser with all of that already drawn.
 4. Your agent then fills it in, in parallel: what the PR does, which frames belong together
    when it does several things and the steps to read them in, a summary per frame, and the
-   frames graded in small batches against a
+   frames read in small batches against a
    fixed list of concerns (a query inside a loop, a public contract that changed, a URL
-   that went away, and so on), with a PR-specific question where one fits.
+   that went away, and so on). Each check says what might go wrong and how to confirm it;
+   anything the diff itself answers is left out.
 
 ## Who does what
 
